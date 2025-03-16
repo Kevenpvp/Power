@@ -6,7 +6,7 @@ pub fn move_action(
     move_dir: Vec2,
     current_states: &mut CurrentStates
 ){
-    if move_dir.y > 0.0 || move_dir.x > 0.0 {
+    if move_dir.y != 0.0 || move_dir.x != 0.0 {
         current_states.transition(&States::Walking,StateInfos{
             values: Some(StatesValues::Walking(Vec3::new(-move_dir.x,0.0,move_dir.y))),
             ..default()

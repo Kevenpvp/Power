@@ -53,6 +53,7 @@ pub struct CurrentStates(pub HashMap<States,StateInfos>);
 
 impl Plugin for StatesMachinePlugin {
     fn build(&self, app: &mut App) {
+        app.register_type::<CurrentStates>();
         app.add_event::<StateAdded>();
         app.add_event::<StateRemoved>();
         app.add_systems(FixedPreUpdate,(current_states_added,check_states_changed,check_states_failed_apply).chain());
