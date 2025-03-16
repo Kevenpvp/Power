@@ -1,0 +1,16 @@
+[package]
+name = "server"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+
+[dependencies]
+shared = { path = "../shared" }
+bevy = {workspace = true}
+log = {workspace = true}
+avian3d = {workspace = true}
+lightyear = {workspace = true}
+serde = {workspace = true}
+leafwing-input-manager = {workspace = true}
+bevy-inspector-egui = {workspace = true}
