@@ -145,7 +145,6 @@ impl CurrentStates {
 
     pub fn transition(&mut self, transition_state: &States, mut state_infos: StateInfos){
         if !self.can_transition(transition_state){
-            println!("false");
             return;
         }
 
@@ -183,8 +182,6 @@ fn check_states_changed(
         let mut states_removed_list: Vec<usize> = Vec::new();
         let mut index_state = 0;
 
-        //println!("Added");
-
         for (state,_) in current_states_map.iter() {
             if !states_applied_list.contains(state) {
                 states_applied_list.push(state.clone());
@@ -193,7 +190,7 @@ fn check_states_changed(
         }
 
         for state in states_applied_list.iter() {
-            if !states_applied_list.contains(state) {
+            if !current_states_map.contains_key(state) {
                 states_removed_list.push(index_state);
                 event_state_removed.send(StateRemoved(entity, state.clone()));
             }
